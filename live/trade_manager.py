@@ -166,9 +166,9 @@ class QuantTradeManager:
         if not res_br.accepted:
             self.logger.log(
                 "order_rejected_skip",
-                    {"entry_ts": str(setup.entry_ts), "direction": setup.direction},
-                )
-                return
+                {"entry_ts": str(setup.entry_ts), "direction": setup.direction},
+            )
+            return
             st2, res_immediate = phase4_live_step(state, ohlcv, atr, bar_index)
             if res_immediate is not None:
                 self.logger.log(
