@@ -22,7 +22,7 @@ from live.runner import LiveEURUSDBot, default_replay_bot
 from live.signal_engine import AsianSessionSnapshot, InstitutionalEURUSDSignalEngine
 from live.trade_logger import TradeLogger
 from live.trade_manager import ManagedPosition, QuantTradeManager
-from live.types import Candle
+from live.live_types import Candle
 
 __all__ = [
     "AsianSessionSnapshot",

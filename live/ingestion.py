@@ -9,7 +9,7 @@ from typing import AsyncIterator, Iterator
 
 import pandas as pd
 
-from live.types import Candle, candle_to_timestamp
+from live.live_types import Candle, candle_to_timestamp
 
 
 class BarSource(ABC):

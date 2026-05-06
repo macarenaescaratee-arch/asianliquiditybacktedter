@@ -6,7 +6,7 @@ from collections import deque
 
 import pandas as pd
 
-from live.types import Candle, candle_to_timestamp
+from live.live_types import Candle, candle_to_timestamp
 
 
 class CandleBuffer:

@@ -16,7 +16,7 @@ from live.ingestion import BarSource, CsvReplaySource
 from live.signal_engine import InstitutionalEURUSDSignalEngine
 from live.trade_logger import TradeLogger
 from live.trade_manager import QuantTradeManager
-from live.types import Candle
+from live.live_types import Candle
 from strategy.asian_liquidity_mss import default_liquidity_mss_config
 
 

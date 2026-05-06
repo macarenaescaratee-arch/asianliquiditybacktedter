@@ -5,7 +5,7 @@ from __future__ import annotations
 import pandas as pd
 
 from live.broker.oanda_rest import OandaRestClient
-from live.types import Candle, candle_to_timestamp
+from live.live_types import Candle, candle_to_timestamp
 
 
 def _mid_bar_to_candle(row: dict) -> Candle | None:
