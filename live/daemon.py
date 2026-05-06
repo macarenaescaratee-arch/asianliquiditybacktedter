@@ -19,6 +19,8 @@ from dataclasses import asdict
 from datetime import datetime, timezone
 from pathlib import Path
 
+print("DAEMON IMPORT STAGE 1", flush=True)
+
 from live.broker.base import BrokerClient
 from live.broker.oanda_broker import OandaExecutionBroker
 from live.broker.oanda_rest import OandaRestError
