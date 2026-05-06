@@ -22,7 +22,7 @@ def _pid_is_alive(pid: int) -> bool:
         return True
 
 
-@dataclass(slots=True)
+@dataclass
 class PidLockResult:
     acquired: bool
     existing_pid: int | None = None

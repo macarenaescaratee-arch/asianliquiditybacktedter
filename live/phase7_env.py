@@ -6,7 +6,7 @@ import os
 from dataclasses import dataclass
 
 
-@dataclass(slots=True)
+@dataclass
 class Phase7OandaConfig:
     api_token: str
     account_id: str

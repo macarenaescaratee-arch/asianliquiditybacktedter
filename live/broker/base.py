@@ -10,7 +10,7 @@ from live.account_types import AccountSnapshot, FillEvent
 from live.execution_plan import LiveExecutionPlan
 
 
-@dataclass(slots=True)
+@dataclass
 class BrokerOrderResult:
     client_order_id: str
     accepted: bool

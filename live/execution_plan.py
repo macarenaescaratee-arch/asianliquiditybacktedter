@@ -16,7 +16,7 @@ from backtester.eurusd_phase4_execution import (
 )
 
 
-@dataclass(slots=True)
+@dataclass
 class LiveExecutionPlan:
     """Prices and metadata for order placement (after spread-adjusted entry model)."""
 

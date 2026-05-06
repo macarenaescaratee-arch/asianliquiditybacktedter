@@ -20,7 +20,7 @@ from live.live_types import Candle
 from strategy.asian_liquidity_mss import default_liquidity_mss_config
 
 
-@dataclass(slots=True)
+@dataclass
 class BotRuntimeSnapshot:
     last_processed_ts: str | None
     fired_keys: list[tuple[str, str]]

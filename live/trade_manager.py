@@ -20,7 +20,7 @@ from live.execution_plan import LiveExecutionPlan
 from live.trade_logger import TradeLogger
 
 
-@dataclass(slots=True)
+@dataclass
 class ManagedPosition:
     setup: TradeSetup
     plan: LiveExecutionPlan

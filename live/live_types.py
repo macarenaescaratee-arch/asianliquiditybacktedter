@@ -11,7 +11,7 @@ import pandas as pd
 Direction = Literal["long", "short"]
 
 
-@dataclass(slots=True)
+@dataclass
 class Candle:
     """Single OHLCV bar (UTC)."""
 

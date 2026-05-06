@@ -11,7 +11,7 @@ from backtester.asian_mss_execution import TradeSetup, build_trade_setups
 from strategy.asian_liquidity_mss import LiquidityMSSConfig, detect_asian_liquidity_mss
 
 
-@dataclass(slots=True)
+@dataclass
 class AsianSessionSnapshot:
     session_date: date
     asian_high: float

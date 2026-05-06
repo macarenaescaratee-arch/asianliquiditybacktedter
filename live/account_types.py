@@ -5,7 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 
-@dataclass(slots=True)
+@dataclass
 class AccountSnapshot:
     balance: float
     currency: str
@@ -16,7 +16,7 @@ class AccountSnapshot:
     raw: dict | None = None
 
 
-@dataclass(slots=True)
+@dataclass
 class PositionSnapshot:
     trade_id: str
     instrument: str
@@ -29,7 +29,7 @@ class PositionSnapshot:
     raw: dict | None = None
 
 
-@dataclass(slots=True)
+@dataclass
 class FillEvent:
     transaction_id: str
     instrument: str
@@ -41,7 +41,7 @@ class FillEvent:
     raw: dict | None = None
 
 
-@dataclass(slots=True)
+@dataclass
 class RiskBudget:
     """Sizing hint from account sync (caller converts to broker units)."""
 
