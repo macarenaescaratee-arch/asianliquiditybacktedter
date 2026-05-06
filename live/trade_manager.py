@@ -151,7 +151,6 @@ class QuantTradeManager:
                 plan, units=units, client_order_id=oid
             )
             
-import os, urllib.request, urllib.parse
 
 self.metrics["submitted_intents"] += 1
             self.logger.log(
