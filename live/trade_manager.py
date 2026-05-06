@@ -153,21 +153,6 @@ class QuantTradeManager:
             
 import os, urllib.request, urllib.parse
 
-token=os.getenv("TELEGRAM_BOT_TOKEN")
-chat=os.getenv("TELEGRAM_CHAT_ID")
-
-msg=f"🚨 EURUSD {setup.direction}\nSL: {plan.stop_price}\nTP: {plan.take_profit_price}"
-
-data=urllib.parse.urlencode({
-    "chat_id":chat,
-    "text":msg
-}).encode()
-
-urllib.request.urlopen(
-    f"https://api.telegram.org/bot{token}/sendMessage",
-    data=data
-)
-
 self.metrics["submitted_intents"] += 1
             self.logger.log(
                 "order_intent",
