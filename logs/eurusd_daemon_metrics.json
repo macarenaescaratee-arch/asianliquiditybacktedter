@@ -1,0 +1,15 @@
+{
+  "active_position": false,
+  "detected_setups": 0,
+  "duplicate_candles": 0,
+  "last_processed_ts": "2026-05-06 03:00:00+00:00",
+  "mode": "paper",
+  "pid": 33946,
+  "poll_cycles": 849,
+  "poll_failures": 1,
+  "processed_candles": 1213,
+  "reconnect_count": 1,
+  "snapshot_utc": "2026-05-06T04:24:47.022954+00:00",
+  "submitted_intents": 0,
+  "uptime_seconds": 12947
+}

@@ -1,0 +1,13 @@
+# AsianLiquidityBacktester — Python dependencies
+# Install on Apple Silicon (M1/M2/M3): use arm64 Python 3.11+ from python.org or pyenv.
+#   python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
+
+pandas>=2.1.0
+numpy>=1.26.0
+vectorbt>=0.26.0
+plotly>=5.18.0
+streamlit>=1.29.0
+requests>=2.31.0
+openpyxl>=3.1.0
+matplotlib>=3.8.0
+dukascopy-python>=4.0.1

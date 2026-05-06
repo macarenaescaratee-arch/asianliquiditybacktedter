@@ -1,0 +1,44 @@
+PHASE 8 REMEDIATION VALIDATION
+Generated: 2026-05-05
+
+Implemented hardening changes:
+- Non-trading warmup path (`LiveEURUSDBot.on_warmup_bar`) and trading gate in bootstrap.
+- Durable runtime persistence (`live/state_store.py`) with JSON atomic state + watchdog files.
+- Runtime recovery hooks:
+  - fired idempotency keys snapshot/restore (`live/signal_engine.py`)
+  - active managed position snapshot/restore (`live/trade_manager.py`)
+  - broker runtime cursor export/import (`live/broker/base.py`, OANDA + paper implementations)
+- Resilient daemon:
+  - retry/backoff on bootstrap + poll failures (`live/daemon.py`)
+  - poll gap recovery count configurable (`OANDA_POLL_COUNT`, default 120)
+  - heartbeat + alert logging and watchdog status updates
+  - bounded max-polls retained for safe test execution
+  - state file write each successful cycle
+- Validation harness:
+  - `scripts/validate_daemon_remediation.py`
+  - mock feed failure injection support (`MOCK_OANDA_FAIL_FIRST`)
+
+Validation command:
+  .venv/bin/python scripts/validate_daemon_remediation.py
+
+Validation output:
+{
+  "bootstrap_duplicate": {
+    "warmup_orders": 0,
+    "duplicate_candles": 1
+  },
+  "restart_recovery": {
+    "restored": true,
+    "active_position_restored": true
+  },
+  "daemon_retry_watchdog": {
+    "daemon_returncode": 0,
+    "poll_error_logged": true,
+    "heartbeat_logged": true,
+    "watchdog_status": "ok"
+  }
+}
+
+Smoke replay:
+  .venv/bin/python -m live.run_live_replay --tail 800
+  Result: exit 0, Paper broker intents: 14

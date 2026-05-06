@@ -1,0 +1,132 @@
+====================================================================================
+PHASE 5 — MONTE CARLO ROBUSTNESS / WALK-FORWARD / OVERFITTING CHECK (EURUSD)
+====================================================================================
+
+Baseline: Phase 4 institutional execution (loser_cap25_struct_2R)
+RNG seed: 42
+
+--- POINT ESTIMATE (full sample, chronological order) ---
+Trades: 46
+Total R: 17.0000
+Mean R / trade: 0.369565
+Max drawdown (ordered path): 5.0000 R
+
+--- SPREAD / SLIPPAGE STRESS (deterministic grid, full bar resimulation) ---
+Note: on hourly bars and capped structural risk, moderate spread-only changes often leave the same discrete outcomes; large spreads (see grid tail) and slippage move totals.
+ spread_pips  slippage_pips  n   total_r   mean_r  max_dd_r
+        0.15           0.00 46 17.000000 0.369565  5.000000
+        0.15           0.05 46 16.788896 0.364976  5.041831
+        0.15           0.10 46 16.577793 0.360387  5.083663
+        0.15           0.20 46 16.155585 0.351208  5.167325
+        0.15           0.35 46 15.522274 0.337441  5.292819
+        0.15           0.50 46 14.888963 0.323673  5.418313
+        0.25           0.00 46 17.000000 0.369565  5.000000
+        0.25           0.05 46 16.789143 0.364981  5.041743
+        0.25           0.10 46 16.578286 0.360398  5.083486
+        0.25           0.20 46 16.156573 0.351230  5.166973
+        0.25           0.35 46 15.524002 0.337478  5.292202
+        0.25           0.50 46 14.891432 0.323727  5.417432
+        0.35           0.00 46 17.000000 0.369565  5.000000
+        0.35           0.05 46 16.789388 0.364987  5.041656
+        0.35           0.10 46 16.578776 0.360408  5.083312
+        0.35           0.20 46 16.157552 0.351251  5.166624
+        0.35           0.35 46 15.525716 0.337516  5.291591
+        0.35           0.50 46 14.893880 0.323780  5.416559
+        0.50           0.00 46 17.000000 0.369565  5.000000
+        0.50           0.05 46 16.789751 0.364995  5.041527
+        0.50           0.10 46 16.579502 0.360424  5.083054
+        0.50           0.20 46 16.159005 0.351283  5.166107
+        0.50           0.35 46 15.528259 0.337571  5.290688
+        0.50           0.50 46 14.897512 0.323859  5.415268
+        0.75           0.00 46 17.000000 0.369565  5.000000
+        0.75           0.05 46 16.790346 0.365008  5.041316
+        0.75           0.10 46 16.580693 0.360450  5.082632
+        0.75           0.20 46 16.161386 0.351334  5.165264
+        0.75           0.35 46 15.532425 0.337661  5.289213
+        0.75           0.50 46 14.903464 0.323988  5.413161
+        1.00           0.00 46 17.000000 0.369565  5.000000
+        1.00           0.05 46 16.790929 0.365020  5.041111
+        1.00           0.10 46 16.581858 0.360475  5.082222
+        1.00           0.20 46 16.163716 0.351385  5.164443
+        1.00           0.35 46 15.536503 0.337750  5.287775
+        1.00           0.50 46 14.909291 0.324115  5.411108
+        1.25           0.00 46 17.000000 0.369565  5.000000
+        1.25           0.05 46 16.791500 0.365033  5.040911
+        1.25           0.10 46 16.582999 0.360500  5.081821
+        1.25           0.20 46 16.165999 0.351435  5.163642
+        1.25           0.35 46 15.540498 0.337837  5.286374
+        1.25           0.50 46 14.914997 0.324239  5.409106
+        1.50           0.00 46 17.000000 0.369565  5.000000
+        1.50           0.05 46 16.792059 0.365045  5.040715
+        1.50           0.10 46 16.584117 0.360524  5.081431
+        1.50           0.20 46 16.168235 0.351483  5.162862
+        1.50           0.35 46 15.544411 0.337922  5.285008
+        1.50           0.50 46 14.920587 0.324361  5.407154
+        2.00           0.00 46 14.000000 0.304348  5.000000
+        2.00           0.05 46 13.793143 0.299851  5.040339
+        2.00           0.10 46 13.586287 0.295354  5.080679
+        2.00           0.20 46 13.172573 0.286360  5.161357
+        2.00           0.35 46 12.552004 0.272870  5.282375
+        2.00           0.50 46 11.931434 0.259379  5.403393
+
+--- RANDOM FRICTION (uniform spread and slippage, full resimulation, 800 draws) ---
+mean_total_r: 15.940214
+p5_total_r: 15.005977
+p50_total_r: 15.954830
+p95_total_r: 16.874048
+p_lte_0: 0.000000
+
+--- MONTE CARLO: BOOTSTRAP (resample trades with replacement, n=15000) ---
+total_r: mean=16.8450  p5=-1.0000  p50=17.0000  p95=35.0000
+max_dd_r: mean=6.1987  p5=3.0000  p50=6.0000  p95=11.0000
+P(total R <= 0): 0.0501
+
+--- MONTE CARLO: SHUFFLE (same outcomes, random order — path / DD risk) ---
+total_R is invariant under permutation (always 17.0000); only drawdown and ruin depend on order.
+max_dd_r: mean=5.8165  p5=4.0000  p50=6.0000  p95=9.0000
+
+--- PROBABILITY OF RUIN (min cumulative equity <= 0; start at K x 1R bankroll) ---
+Bootstrap resampling:
+  Initial capital 5 R: P(ruin) = 0.1579
+  Initial capital 10 R: P(ruin) = 0.0267
+  Initial capital 15 R: P(ruin) = 0.0026
+  Initial capital 20 R: P(ruin) = 0.0000
+  Initial capital 30 R: P(ruin) = 0.0000
+Shuffle (order risk only):
+  Initial capital 5 R: P(ruin) = 0.0969
+  Initial capital 10 R: P(ruin) = 0.0025
+  Initial capital 15 R: P(ruin) = 0.0001
+  Initial capital 20 R: P(ruin) = 0.0000
+  Initial capital 30 R: P(ruin) = 0.0000
+
+--- WALK-FORWARD / OOS (expanding IS by calendar month) ---
+OOS_from_2023-08: IS n=8 mean R=0.5000 | OOS n=38 mean R=0.3421
+OOS_from_2023-09: IS n=10 mean R=0.5000 | OOS n=36 mean R=0.3333
+OOS_from_2023-11: IS n=13 mean R=0.1538 | OOS n=33 mean R=0.4545
+OOS_from_2023-12: IS n=16 mean R=0.5000 | OOS n=30 mean R=0.3000
+OOS_from_2024-02: IS n=17 mean R=0.5882 | OOS n=29 mean R=0.2414
+OOS_from_2024-04: IS n=19 mean R=0.4211 | OOS n=27 mean R=0.3333
+OOS_from_2024-06: IS n=22 mean R=0.3636 | OOS n=24 mean R=0.3750
+OOS_from_2024-07: IS n=23 mean R=0.4348 | OOS n=23 mean R=0.3043
+OOS_from_2024-08: IS n=24 mean R=0.5000 | OOS n=22 mean R=0.2273
+OOS_from_2024-10: IS n=27 mean R=0.4444 | OOS n=19 mean R=0.2632
+OOS_from_2024-11: IS n=29 mean R=0.4483 | OOS n=17 mean R=0.2353
+OOS_from_2024-12: IS n=30 mean R=0.4000 | OOS n=16 mean R=0.3125
+OOS_from_2025-01: IS n=31 mean R=0.4516 | OOS n=15 mean R=0.2000
+OOS_from_2025-03: IS n=34 mean R=0.4118 | OOS n=12 mean R=0.2500
+OOS_from_2025-04: IS n=35 mean R=0.4571 | OOS n=11 mean R=0.0909
+OOS_from_2025-05: IS n=36 mean R=0.4167 | OOS n=10 mean R=0.2000
+OOS_from_2025-06: IS n=37 mean R=0.4595 | OOS n=9 mean R=0.0000
+OOS_from_2025-09: IS n=38 mean R=0.4211 | OOS n=8 mean R=0.1250
+OOS_from_2025-12: IS n=42 mean R=0.4286 | OOS n=4 mean R=-0.2500
+
+--- OVERFITTING / STABILITY (single chronological splits, mean R) ---
+50/50 split: {'is_n': 23.0, 'oos_n': 23.0, 'is_mean_r': 0.43478260869565216, 'oos_mean_r': 0.30434782608695654, 'oos_minus_is': -0.13043478260869562}
+60/40 IS/OOS split: {'is_n': 28.0, 'oos_n': 18.0, 'is_mean_r': 0.5, 'oos_mean_r': 0.16666666666666666, 'oos_minus_is': -0.33333333333333337}
+
+Interpretation: large gaps IS vs OOS mean R or high P(ruin) at realistic capital suggest fragility.
+Small sample (46 trades): use ranges and percentiles, not point significance.
+
+====================================================================================
+END OF PHASE 5 REPORT
+====================================================================================

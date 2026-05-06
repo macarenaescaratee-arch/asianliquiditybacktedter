@@ -1,0 +1,4 @@
+{"utc": "2026-05-05T05:08:34.077751+00:00", "kind": "account_sync", "balance": 100000.0, "currency": "USD", "margin_available": 100000.0, "nav": 100000.0, "margin_used": 0.0, "unrealized_pl": 0.0}
+{"utc": "2026-05-05T05:08:50.159644+00:00", "kind": "account_sync", "balance": 100000.0, "currency": "USD", "margin_available": 100000.0, "nav": 100000.0, "margin_used": 0.0, "unrealized_pl": 0.0}
+{"utc": "2026-05-05T05:09:05.702092+00:00", "kind": "account_sync", "balance": 100000.0, "currency": "USD", "margin_available": 100000.0, "nav": 100000.0, "margin_used": 0.0, "unrealized_pl": 0.0}
+{"utc": "2026-05-05T05:09:21.162058+00:00", "kind": "account_sync", "balance": 100000.0, "currency": "USD", "margin_available": 100000.0, "nav": 100000.0, "margin_used": 0.0, "unrealized_pl": 0.0}

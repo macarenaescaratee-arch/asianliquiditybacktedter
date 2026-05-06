@@ -1,0 +1,34 @@
+{
+  "broker": {},
+  "instrument": "EUR_USD",
+  "log_path": "/Users/macarenaescarate/Documents/asianliquiditybacktedter/logs/eurusd_institutional_live.jsonl",
+  "metrics": {
+    "duplicate_candles": 0,
+    "fill_events": 0,
+    "poll_cycles": 849,
+    "poll_errors": 1,
+    "processed_candles": 1213,
+    "warmup_candles": 1199
+  },
+  "mode": "paper",
+  "runtime": {
+    "fired_keys": [],
+    "last_processed_ts": "2026-05-06T03:00:00+00:00",
+    "manager": {
+      "active": false,
+      "metrics": {
+        "close_events": 0,
+        "detected_setups": 0,
+        "open_events": 0,
+        "submitted_intents": 0
+      }
+    },
+    "metrics": {
+      "duplicate_candles": 0,
+      "processed_candles": 1213,
+      "warmup_candles": 1199
+    }
+  },
+  "saved_utc": "2026-05-06T04:24:50.169333+00:00",
+  "shutdown_reason": "keyboard_interrupt"
+}

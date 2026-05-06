@@ -1,0 +1,73 @@
+EURUSD — PHASE 2 OPTIMIZATION REPORT
+
+=== EURUSD LOSS DRIVER ANALYSIS (baseline unfiltered) ===
+Counts — wins: 59, losses: 94, timeouts: 20
+
+Mean feature comparison (wins vs losses):
+  sweep_penetration_pips        wins=  12.107  losses=  14.413
+  disp_body_ratio               wins=   0.739  losses=   0.733
+  disp_range_pips               wins=  15.754  losses=  17.020
+  disp_range_over_atr           wins=   1.712  losses=   1.764
+  hours_sweep_to_confirm        wins=  40.119  losses=  38.468
+  risk_pips                     wins=  21.898  losses=  31.520
+
+Session mix among LOSSES (share of losing trades):
+  London: 94.7%
+  NY: 5.3%
+
+Timeouts vs sweep depth (mean penetration pips):
+  timeouts: 15.060  wins: 12.107
+
+Interpretation (automated):
+  • If losses cluster in NY-only or show weaker mean displacement body/range, tighten session or displacement.
+  • If timeouts show shallow sweeps, require minimum penetration pips.
+  • If losses confirm faster/slower than wins, narrow sweep→confirm hours.
+
+
+=== VARIANT COMPARISON (sorted by expectancy) ===
+    name  n       wr   avg_rr      exp
+cfg_0239 46 0.326087 0.308543 0.308543
+cfg_0095 46 0.326087 0.308543 0.308543
+cfg_0093 46 0.326087 0.308543 0.308543
+cfg_0091 46 0.326087 0.308543 0.308543
+cfg_0089 46 0.326087 0.308543 0.308543
+cfg_0233 46 0.326087 0.308543 0.308543
+cfg_0235 46 0.326087 0.308543 0.308543
+cfg_0237 46 0.326087 0.308543 0.308543
+cfg_0261 40 0.325000 0.279903 0.279903
+cfg_0117 40 0.325000 0.279903 0.279903
+cfg_0119 40 0.325000 0.279903 0.279903
+cfg_0113 40 0.325000 0.279903 0.279903
+cfg_0257 40 0.325000 0.279903 0.279903
+cfg_0259 40 0.325000 0.279903 0.279903
+cfg_0115 40 0.325000 0.279903 0.279903
+cfg_0263 40 0.325000 0.279903 0.279903
+cfg_0217 83 0.313253 0.258318 0.258318
+cfg_0079 83 0.313253 0.258318 0.258318
+cfg_0077 83 0.313253 0.258318 0.258318
+cfg_0075 83 0.313253 0.258318 0.258318
+cfg_0073 83 0.313253 0.258318 0.258318
+cfg_0219 83 0.313253 0.258318 0.258318
+cfg_0221 83 0.313253 0.258318 0.258318
+cfg_0223 83 0.313253 0.258318 0.258318
+cfg_0021 51 0.313725 0.239078 0.239078
+cfg_0017 51 0.313725 0.239078 0.239078
+cfg_0019 51 0.313725 0.239078 0.239078
+cfg_0023 51 0.313725 0.239078 0.239078
+cfg_0241 74 0.324324 0.238507 0.238507
+cfg_0243 74 0.324324 0.238507 0.238507
+cfg_0097 74 0.324324 0.238507 0.238507
+cfg_0099 74 0.324324 0.238507 0.238507
+cfg_0247 74 0.324324 0.238507 0.238507
+cfg_0101 74 0.324324 0.238507 0.238507
+cfg_0103 74 0.324324 0.238507 0.238507
+cfg_0245 74 0.324324 0.238507 0.238507
+cfg_0041 44 0.318182 0.231730 0.231730
+cfg_0043 44 0.318182 0.231730 0.231730
+cfg_0045 44 0.318182 0.231730 0.231730
+cfg_0047 44 0.318182 0.231730 0.231730
+
+=== BEST CONFIGURATION ===
+Expectancy (R/trade): 0.3085
+Trades: 46  Win rate: 32.61%  Avg RR: 0.3085
+Best filter pack: OptFilterPack(name='cfg_0089', sweep_session_mode='london_only', min_sweep_penetration_pips=0.0, min_disp_body_ratio=0.72, min_disp_range_over_atr=0.0, min_hours_sweep_to_confirm=0.0, max_hours_sweep_to_confirm=48.0, min_risk_pips=8.0, max_risk_pips=150.0)

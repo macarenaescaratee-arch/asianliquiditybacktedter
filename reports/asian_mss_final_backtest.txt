@@ -1,0 +1,39 @@
+AsianLiquidityBacktester — FINAL BACKTEST (Asian sweep + MSS)
+Assets: EURUSD, XAUUSD, NAS100
+RR target per winning trade: 1:2 (fixed). Stops: Asian extreme ± buffer vs sweep wick.
+
+--- EURUSD ---
+bars loaded: 18626
+executable setups: 46
+simulated trades: 46
+sample setup: 2023-05-10 short entry=1.09076 SL=1.09854 TP=1.07520 risk_pts=0.00778 risk_pips≈77.8
+
+--- XAUUSD ---
+bars loaded: 17693
+executable setups: 143
+simulated trades: 143
+sample setup: 2023-05-08 short entry=2032.74400 SL=2032.80400 TP=2032.62400 risk_pts=0.06000 risk_pips≈6.0
+
+--- NAS100 ---
+bars loaded: 5222
+executable setups: 94
+simulated trades: 94
+sample setup: 2023-05-24 long entry=83.09400 SL=80.14400 TP=88.99400 risk_pts=2.95000 risk_pips≈295.0
+
+=== PER-ASSET PERFORMANCE ===
+symbol  trades  wins  losses  timeouts win_rate avg_rr expectancy_r
+EURUSD      46    15      22         9   32.61%  0.309        0.309
+NAS100      94    20      71         3   21.28% -0.330       -0.330
+XAUUSD     143    36      97        10   25.17% -0.173       -0.173
+
+Best asset (expectancy R):  EURUSD
+Worst asset (expectancy R): NAS100
+
+=== ALL ASSETS COMBINED ===
+total trades: 283
+wins: 71
+losses: 190
+timeouts: 22
+win rate: 25.09%
+average RR (realized R multiple): -0.1469
+net expectancy (R per trade): -0.1469

@@ -1,0 +1,177 @@
+====================================================================================
+PHASE 4 — EURUSD QUANT EXECUTION MODEL (46 Phase 3 institutional setups)
+====================================================================================
+
+Scope: post-entry execution only. Candidate detection and Phase 3 entry filters unchanged.
+
+--- LEGACY ENGINE (asian_mss_execution._simulate_one), same 46 setups ---
+Expectancy (R/trade): 0.308543
+Total R:            14.1930
+Wins / Loss / TO:   15 / 22 / 9
+
+--- BEST EXECUTION VARIANT: loser_cap25_struct_2R ---
+ExecutionVariant(name='loser_cap25_struct_2R', sl_mode='structural', tp_mode='fixed_rr', tp_rr=2.0, sl_fixed_pips=15.0, sl_atr_mult=1.25, max_loss_cap_pips=25.0, be_after_r=None, partial_pct_at_1r=None, runner_tp_rr=2.5, time_stop_hours=None, min_expansion_r=0.22, kill_ny_utc_hour=None, spread_pips=0.35, trail_atr_mult=0.4, london_exit_utc_hour=16, max_bars=200)
+Expectancy (R/trade): 0.369565
+Total R:            17.0000
+Win rate (R>0.05): 45.65%
+Max consecutive losses (outcome tag): 4
+Delta vs legacy total R: +2.8070
+
+--- BASELINE PHASE4 SIM (P3_NATIVE_spread0_capoff_200b) ---
+Total R: 14.1930  E[R]: 0.308543
+Delta best vs Phase4-native baseline total R: +2.8070
+
+--- RANKED EXECUTION VARIANTS (by expectancy R/trade, descending) ---
+                      variant  n  expectancy_r  win_rate     avg_r    total_r
+ auto_fixe_tp2.0_beNone_cap35 46      0.369565  0.456522  0.369565  17.000000
+ auto_fixe_tp2.0_beNone_cap50 46      0.369565  0.456522  0.369565  17.000000
+        loser_cap25_struct_2R 46      0.369565  0.456522  0.369565  17.000000
+    loser_timeout8h_struct_2R 46      0.321335  0.434783  0.321335  14.781429
+   loser_timeout12h_struct_2R 46      0.318525  0.434783  0.318525  14.652143
+P3_NATIVE_spread0_capoff_200b 46      0.308543  0.500000  0.308543  14.192974
+          P3_PARITY_struct_2R 46      0.307930  0.500000  0.307930  14.164793
+ auto_stru_tp2.0_beNone_cap35 46      0.304348  0.434783  0.304348  14.000000
+           struct_2R_spread08 46      0.304348  0.434783  0.304348  14.000000
+ auto_stru_tp2.0_beNone_cap50 46      0.287098  0.434783  0.287098  13.206500
+           time_stop_18h_dead 46      0.276568  0.413043  0.276568  12.722143
+                  ny_kill_21h 46      0.243628  0.456522  0.243628  11.206871
+ auto_stru_tp3.0_beNone_cap50 46      0.230077  0.347826  0.230077  10.583554
+               sess_close_L16 46      0.216035  0.434783  0.216035   9.937609
+               opp_liq_struct 46      0.198287  0.478261  0.198287   9.121183
+ auto_stru_tp3.0_beNone_cap35 46      0.195566  0.304348  0.195566   8.996054
+ auto_stru_tp1.0_beNone_cap35 46      0.173913  0.586957  0.173913   8.000000
+ auto_stru_tp1.0_beNone_cap50 46      0.173913  0.586957  0.173913   8.000000
+ auto_stru_tp1.5_beNone_cap35 46      0.141304  0.456522  0.141304   6.500000
+ auto_stru_tp1.5_beNone_cap50 46      0.141304  0.456522  0.141304   6.500000
+          partial_50_runner25 46      0.119565  0.304348  0.119565   5.500000
+  auto_atr_tp2.0_beNone_cap35 46      0.108696  0.369565  0.108696   5.000000
+  auto_atr_tp2.0_beNone_cap50 46      0.108696  0.369565  0.108696   5.000000
+ auto_hybr_tp2.0_beNone_cap35 46      0.108696  0.369565  0.108696   5.000000
+ auto_hybr_tp2.0_beNone_cap50 46      0.108696  0.369565  0.108696   5.000000
+          partial_40_runner25 46      0.108696  0.304348  0.108696   5.000000
+                opp_liq_atrSL 46      0.065504  0.369565  0.065504   3.013187
+  auto_fixe_tp2.0_be1.0_cap35 46      0.043478  0.347826  0.043478   2.000000
+  auto_fixe_tp2.0_be1.0_cap50 46      0.043478  0.347826  0.043478   2.000000
+  auto_atr_tp3.0_beNone_cap35 46      0.043478  0.260870  0.043478   2.000000
+  auto_atr_tp3.0_beNone_cap50 46      0.043478  0.260870  0.043478   2.000000
+ auto_hybr_tp3.0_beNone_cap35 46      0.043478  0.260870  0.043478   2.000000
+ auto_hybr_tp3.0_beNone_cap50 46      0.043478  0.260870  0.043478   2.000000
+  auto_atr_tp1.5_beNone_cap35 46      0.032609  0.413043  0.032609   1.500000
+  auto_atr_tp1.5_beNone_cap50 46      0.032609  0.413043  0.032609   1.500000
+ auto_hybr_tp1.5_beNone_cap35 46      0.032609  0.413043  0.032609   1.500000
+ auto_hybr_tp1.5_beNone_cap50 46      0.032609  0.413043  0.032609   1.500000
+  auto_stru_tp1.0_be1.0_cap50 46      0.000000  0.500000  0.000000   0.000000
+  auto_stru_tp2.0_be1.0_cap35 46     -0.021739  0.326087 -0.021739  -1.000000
+  auto_stru_tp2.0_be1.0_cap50 46     -0.021739  0.326087 -0.021739  -1.000000
+ auto_hybr_tp1.0_beNone_cap35 46     -0.043478  0.478261 -0.043478  -2.000000
+ auto_hybr_tp1.0_beNone_cap50 46     -0.043478  0.478261 -0.043478  -2.000000
+  auto_stru_tp1.5_be1.0_cap35 46     -0.076087  0.369565 -0.076087  -3.500000
+  auto_stru_tp1.5_be1.0_cap50 46     -0.076087  0.369565 -0.076087  -3.500000
+  auto_stru_tp1.0_be1.0_cap35 46     -0.086957  0.456522 -0.086957  -4.000000
+  auto_atr_tp1.0_beNone_cap35 46     -0.086957  0.456522 -0.086957  -4.000000
+  auto_atr_tp1.0_beNone_cap50 46     -0.086957  0.456522 -0.086957  -4.000000
+  auto_stru_tp3.0_be1.0_cap35 46     -0.152260  0.217391 -0.152260  -7.003946
+  auto_stru_tp3.0_be1.0_cap50 46     -0.205379  0.217391 -0.205379  -9.447446
+   auto_atr_tp3.0_be1.0_cap35 46     -0.217391  0.195652 -0.217391 -10.000000
+   auto_atr_tp3.0_be1.0_cap50 46     -0.217391  0.195652 -0.217391 -10.000000
+   auto_atr_tp2.0_be1.0_cap35 46     -0.282609  0.239130 -0.282609 -13.000000
+   auto_atr_tp2.0_be1.0_cap50 46     -0.282609  0.239130 -0.282609 -13.000000
+      partial50_runner3R_BE05 46     -0.293521  0.152174 -0.293521 -13.501973
+  auto_hybr_tp3.0_be1.0_cap35 46     -0.304348  0.173913 -0.304348 -14.000000
+  auto_hybr_tp3.0_be1.0_cap50 46     -0.304348  0.173913 -0.304348 -14.000000
+  auto_stru_tp1.0_be0.5_cap35 46     -0.347826  0.326087 -0.347826 -16.000000
+  auto_stru_tp1.0_be0.5_cap50 46     -0.347826  0.326087 -0.347826 -16.000000
+  auto_stru_tp2.0_be0.5_cap35 46     -0.347826  0.217391 -0.347826 -16.000000
+  auto_stru_tp2.0_be0.5_cap50 46     -0.347826  0.217391 -0.347826 -16.000000
+  auto_fixe_tp2.0_be0.5_cap35 46     -0.347826  0.217391 -0.347826 -16.000000
+  auto_fixe_tp2.0_be0.5_cap50 46     -0.347826  0.217391 -0.347826 -16.000000
+  auto_hybr_tp2.0_be1.0_cap35 46     -0.347826  0.217391 -0.347826 -16.000000
+  auto_hybr_tp2.0_be1.0_cap50 46     -0.347826  0.217391 -0.347826 -16.000000
+  auto_stru_tp1.5_be0.5_cap35 46     -0.347826  0.260870 -0.347826 -16.000000
+   auto_atr_tp1.5_be1.0_cap35 46     -0.347826  0.260870 -0.347826 -16.000000
+   auto_atr_tp1.5_be1.0_cap50 46     -0.347826  0.260870 -0.347826 -16.000000
+  auto_stru_tp1.5_be0.5_cap50 46     -0.402174  0.239130 -0.402174 -18.500000
+  auto_hybr_tp1.5_be1.0_cap35 46     -0.402174  0.239130 -0.402174 -18.500000
+  auto_hybr_tp1.5_be1.0_cap50 46     -0.402174  0.239130 -0.402174 -18.500000
+  auto_stru_tp3.0_be0.5_cap35 46     -0.413129  0.152174 -0.413129 -19.003946
+   auto_atr_tp1.0_be1.0_cap35 46     -0.434783  0.282609 -0.434783 -20.000000
+   auto_atr_tp1.0_be1.0_cap50 46     -0.434783  0.282609 -0.434783 -20.000000
+  auto_hybr_tp1.0_be1.0_cap35 46     -0.434783  0.282609 -0.434783 -20.000000
+  auto_hybr_tp1.0_be1.0_cap50 46     -0.434783  0.282609 -0.434783 -20.000000
+  auto_stru_tp3.0_be0.5_cap50 46     -0.466249  0.152174 -0.466249 -21.447446
+        loser_BE0.4_struct_2R 46     -0.478261  0.173913 -0.478261 -22.000000
+                 trail_struct 46     -0.587245  0.065217 -0.587245 -27.013253
+         trail_struct_tight05 46     -0.587245  0.065217 -0.587245 -27.013253
+        loser_BE0.3_struct_2R 46     -0.608696  0.130435 -0.608696 -28.000000
+        loser_BE03_timeout12h 46     -0.608696  0.130435 -0.608696 -28.000000
+   auto_atr_tp3.0_be0.5_cap35 46     -0.652174  0.086957 -0.652174 -30.000000
+   auto_atr_tp3.0_be0.5_cap50 46     -0.652174  0.086957 -0.652174 -30.000000
+  auto_hybr_tp1.0_be0.5_cap35 46     -0.652174  0.173913 -0.652174 -30.000000
+  auto_hybr_tp1.0_be0.5_cap50 46     -0.652174  0.173913 -0.652174 -30.000000
+  auto_hybr_tp3.0_be0.5_cap35 46     -0.652174  0.086957 -0.652174 -30.000000
+  auto_hybr_tp3.0_be0.5_cap50 46     -0.652174  0.086957 -0.652174 -30.000000
+   auto_atr_tp2.0_be0.5_cap35 46     -0.673913  0.108696 -0.673913 -31.000000
+   auto_atr_tp2.0_be0.5_cap50 46     -0.673913  0.108696 -0.673913 -31.000000
+  auto_hybr_tp2.0_be0.5_cap35 46     -0.673913  0.108696 -0.673913 -31.000000
+  auto_hybr_tp2.0_be0.5_cap50 46     -0.673913  0.108696 -0.673913 -31.000000
+   auto_atr_tp1.5_be0.5_cap35 46     -0.673913  0.130435 -0.673913 -31.000000
+   auto_atr_tp1.5_be0.5_cap50 46     -0.673913  0.130435 -0.673913 -31.000000
+  auto_hybr_tp1.5_be0.5_cap35 46     -0.673913  0.130435 -0.673913 -31.000000
+  auto_hybr_tp1.5_be0.5_cap50 46     -0.673913  0.130435 -0.673913 -31.000000
+   auto_atr_tp1.0_be0.5_cap35 46     -0.695652  0.152174 -0.695652 -32.000000
+   auto_atr_tp1.0_be0.5_cap50 46     -0.695652  0.152174 -0.695652 -32.000000
+
+--- LOSER REDUCTION (full ~1R stops vs baseline indices) ---
+Baseline for loss analysis: P3_NATIVE_spread0_capoff_200b (Phase 3–style path: native entry, 200 bars).
+Full stop losses (about -1R each): 22
+Variants that most often improve on those full stops vs baseline (higher R on same trade index):
+  sess_close_L16: 10 trades improved vs baseline full-stop indices
+  auto_hybr_tp1.0_beNone_cap35: 7 trades improved vs baseline full-stop indices
+  auto_hybr_tp1.0_beNone_cap50: 7 trades improved vs baseline full-stop indices
+  auto_stru_tp1.0_beNone_cap35: 6 trades improved vs baseline full-stop indices
+  auto_atr_tp1.0_beNone_cap35: 6 trades improved vs baseline full-stop indices
+  auto_atr_tp1.0_beNone_cap50: 6 trades improved vs baseline full-stop indices
+  ny_kill_21h: 6 trades improved vs baseline full-stop indices
+  partial_40_runner25: 6 trades improved vs baseline full-stop indices
+  partial_50_runner25: 6 trades improved vs baseline full-stop indices
+  auto_stru_tp1.0_beNone_cap50: 5 trades improved vs baseline full-stop indices
+  auto_atr_tp1.5_beNone_cap35: 5 trades improved vs baseline full-stop indices
+  auto_atr_tp1.5_beNone_cap50: 5 trades improved vs baseline full-stop indices
+
+Sample early-BE / timeout variant improvement counts (same metric):
+  early BE-style names:
+    loser_BE0.3_struct_2R: 0
+    loser_BE0.4_struct_2R: 0
+    loser_BE03_timeout12h: 0
+  timeout-style names:
+    loser_timeout8h_struct_2R: 2
+    loser_timeout12h_struct_2R: 2
+    loser_BE03_timeout12h: 0
+
+--- WINNER EXPANSION (MFE vs realized on BEST variant) ---
+Best variant `loser_cap25_struct_2R`: trades with MFE R − realized R ≥ 0.35 (potential runner/trail upside): 9
+  idx=30 2024-12-18 09:00:00+00:00 short  realized=2.000  MFE_gap=2.789
+  idx=16 2023-12-29 20:00:00+00:00 short  realized=2.000  MFE_gap=0.969
+  idx=38 2025-09-05 06:00:00+00:00 long  realized=2.000  MFE_gap=0.929
+  idx=1 2023-05-17 06:00:00+00:00 short  realized=2.000  MFE_gap=0.705
+  idx=34 2025-03-20 05:00:00+00:00 short  realized=2.000  MFE_gap=0.597
+  idx=31 2025-01-08 08:00:00+00:00 short  realized=2.000  MFE_gap=0.540
+  idx=24 2024-08-01 07:00:00+00:00 short  realized=2.000  MFE_gap=0.495
+  idx=21 2024-04-12 04:00:00+00:00 short  realized=2.000  MFE_gap=0.481
+  idx=23 2024-07-19 07:00:00+00:00 short  realized=2.000  MFE_gap=0.365
+
+--- STANDALONE EURUSD PERFORMANCE (Phase 4 winning execution, 46 trades) ---
+Instrument: EURUSD
+Trades: 46
+Net R: 17.0000
+Expectancy: 0.369565 R/trade
+Average R: 0.369565
+Win rate (R > 0.05): 45.65%
+
+Reference: `FINAL_EURUSD_INSTITUTIONAL_REPORT.txt` lists legacy engine E[R] for the same 46 setups (about 0.3085 R/trade). Phase 4 best model adds +0.0610 R/trade vs that snapshot.
+
+Trade log: /Users/macarenaescarate/Documents/asianliquiditybacktedter/reports/phase4_eurusd_best_trades.csv
+
+====================================================================================
+END OF PHASE 4 REPORT
+====================================================================================

@@ -1,0 +1,59 @@
+FINAL OPS HARDENING REPORT
+Date: 2026-05-05
+
+Scope implemented:
+1) Singleton daemon lockfile/PID guard
+2) Rotating bounded log retention
+3) Structured metrics snapshot + rotating metrics history
+4) Supervisor-ready watchdog/health status file
+5) Graceful startup/shutdown with durable state flush
+6) Deploy helper scripts (clean start, kill stale, health, status)
+7) Bounded ops validation suite
+
+Code changes:
+- live/ops_runtime.py
+  - SingletonPidLock
+  - RotatingJsonlWriter
+- live/trade_logger.py
+  - log rotation via LIVE_LOG_MAX_BYTES / LIVE_LOG_BACKUPS
+- live/config.py
+  - daemon lock/metrics default paths
+- live/state_store.py
+  - MetricsSnapshotStore (snapshot json + rotated history jsonl)
+- live/daemon.py
+  - singleton lock acquire/release
+  - startup/stop watchdog states
+  - structured metrics writing each cycle
+  - graceful final state flush in finally
+  - reconnect counter and uptime metrics
+- live/run_daemon.py
+  - SIGTERM->KeyboardInterrupt handler
+  - lock/metrics CLI arguments
+- scripts/
+  - ops_daemon_clean_start.sh
+  - ops_daemon_start.sh
+  - ops_daemon_kill_stale.sh
+  - ops_daemon_health.sh
+  - ops_daemon_status.sh
+  - validate_ops_hardening.py
+
+Bounded validation command:
+  .venv/bin/python scripts/validate_ops_hardening.py
+
+Bounded validation output:
+{
+  "duplicate_daemon_rejected": true,
+  "graceful_shutdown_state_written": true,
+  "restart_resumed_state": true,
+  "metrics_snapshot_written": true,
+  "logs_bounded": true
+}
+
+Final readiness yes/no:
+- "safe to run unattended on paper demo for multi-day forward validation?"
+  YES
+
+Remaining non-code operational cautions:
+- Ensure external process supervisor actually monitors and restarts on non-zero exit (systemd/docker/PM2).
+- Configure alert routing from watchdog/health checks (email/Slack/PagerDuty) so degraded/stopped states are acted on.
+- Run on stable host clock (NTP synced) and persistent disk with backup/retention policy for logs/state.

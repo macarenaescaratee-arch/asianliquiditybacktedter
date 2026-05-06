@@ -1,0 +1,22 @@
+{
+  "sweep_session_mode": "london_only",
+  "min_sweep_penetration_pips": 0.0,
+  "min_disp_body_ratio": 0.72,
+  "min_disp_range_over_atr": 0.0,
+  "min_hours_sweep_to_confirm": 0.0,
+  "max_hours_sweep_to_confirm": 48.0,
+  "min_risk_pips": 8.0,
+  "max_risk_pips": 150.0,
+  "metrics": {
+    "n": 46.0,
+    "wr": 0.32608695652173914,
+    "avg_rr": 0.3085429049451096,
+    "exp": 0.3085429049451096
+  },
+  "baseline_metrics": {
+    "n": 173.0,
+    "wr": 0.34104046242774566,
+    "avg_rr": 0.2169818509070467,
+    "exp": 0.2169818509070467
+  }
+}
