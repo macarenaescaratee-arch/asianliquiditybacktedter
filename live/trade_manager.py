@@ -152,20 +152,20 @@ class QuantTradeManager:
             )
             
 
-self.metrics["submitted_intents"] += 1
+        self.metrics["submitted_intents"] += 1
+        self.logger.log(
+            "order_intent",
+            {
+                "accepted": res_br.accepted,
+                "client_order_id": res_br.client_order_id,
+                "plan": plan,
+                "broker_message": res_br.message,
+                "broker_trade_id": res_br.broker_trade_id,
+            },
+        )
+        if not res_br.accepted:
             self.logger.log(
-                "order_intent",
-                {
-                    "accepted": res_br.accepted,
-                    "client_order_id": res_br.client_order_id,
-                    "plan": plan,
-                    "broker_message": res_br.message,
-                    "broker_trade_id": res_br.broker_trade_id,
-                },
-            )
-            if not res_br.accepted:
-                self.logger.log(
-                    "order_rejected_skip",
+                "order_rejected_skip",
                     {"entry_ts": str(setup.entry_ts), "direction": setup.direction},
                 )
                 return
