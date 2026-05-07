@@ -26,6 +26,7 @@ print("DAEMON IMPORT STAGE 2", flush=True)
 from live.broker.oanda_broker import OandaExecutionBroker
 print("DAEMON IMPORT STAGE 3", flush=True)
 from live.broker.oanda_rest import OandaRestError
+print("DAEMON IMPORT STAGE 4", flush=True)
 from live.broker.oanda_rest import OandaRestClient
 from live.broker.paper_broker import PaperBrokerClient
 from live.config import (
