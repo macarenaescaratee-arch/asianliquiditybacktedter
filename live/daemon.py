@@ -119,11 +119,15 @@ def run_forever(
         history_backups=int(os.environ.get("METRICS_HISTORY_BACKUPS", "6")),
     )
     startup_utc = datetime.now(timezone.utc)
-    lock_res = lock.acquire()
+    print("BEFORE LOCK", flush=True)
+lock_res = lock.acquire()
+print("AFTER LOCK", flush=True)
     if not lock_res.acquired:
         raise RuntimeError(lock_res.message)
     watchdog.update({"status": "starting", "pid": os.getpid()})
-    persisted = state_store.load()
+    print("BEFORE STATE LOAD", flush=True)
+persisted = state_store.load()
+print("AFTER STATE LOAD", flush=True)
 
     restored = False
     if persisted and isinstance(persisted, dict):
