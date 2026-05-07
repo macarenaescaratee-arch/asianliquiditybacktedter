@@ -39,6 +39,7 @@ from live.config import (
     DEFAULT_WATCHDOG_PATH,
 )
 from live.feed.oanda_poll import bootstrap_closed_candles, poll_new_closed_candles
+print("DAEMON IMPORT STAGE 6", flush=True)
 from live.ingestion import WebSocketBarSourceStub
 from live.ops_runtime import SingletonPidLock
 from live.phase7_env import Phase7OandaConfig
