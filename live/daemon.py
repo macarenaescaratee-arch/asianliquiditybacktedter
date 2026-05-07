@@ -124,7 +124,7 @@ lock_res = lock.acquire()
 print("AFTER LOCK", flush=True)
 if not lock_res.acquired:
         raise RuntimeError(lock_res.message)
-    watchdog.update({"status": "starting", "pid": os.getpid()})
+watchdog.update({"status": "starting", "pid": os.getpid()})
     print("BEFORE STATE LOAD", flush=True)
 persisted = state_store.load()
 print("AFTER STATE LOAD", flush=True)
