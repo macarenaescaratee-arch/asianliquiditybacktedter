@@ -122,7 +122,7 @@ def run_forever(
     print("BEFORE LOCK", flush=True)
 lock_res = lock.acquire()
 print("AFTER LOCK", flush=True)
-    if not lock_res.acquired:
+if not lock_res.acquired:
         raise RuntimeError(lock_res.message)
     watchdog.update({"status": "starting", "pid": os.getpid()})
     print("BEFORE STATE LOAD", flush=True)
