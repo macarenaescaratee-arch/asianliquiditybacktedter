@@ -69,6 +69,8 @@ def _with_retries(func, *, max_backoff_s: float, base_wait_s: float, logger) -> 
             time.sleep(max(wait_s, 1.0))
 
 
+print("ENTERING RUN_FOREVER", flush=True)
+
 def run_forever(
     *,
     paper: bool,
