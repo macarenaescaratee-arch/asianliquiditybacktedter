@@ -19,16 +19,11 @@ from dataclasses import asdict
 from datetime import datetime, timezone
 from pathlib import Path
 
-print("DAEMON IMPORT STAGE 1", flush=True)
 
 from live.broker.base import BrokerClient
-print("DAEMON IMPORT STAGE 2", flush=True)
 from live.broker.oanda_broker import OandaExecutionBroker
-print("DAEMON IMPORT STAGE 3", flush=True)
 from live.broker.oanda_rest import OandaRestError
-print("DAEMON IMPORT STAGE 4", flush=True)
 from live.broker.oanda_rest import OandaRestClient
-print("DAEMON IMPORT STAGE 5", flush=True)
 from live.broker.paper_broker import PaperBrokerClient
 from live.config import (
     DEFAULT_DAEMON_LOCK_PATH,
@@ -39,7 +34,6 @@ from live.config import (
     DEFAULT_WATCHDOG_PATH,
 )
 from live.feed.oanda_poll import bootstrap_closed_candles, poll_new_closed_candles
-print("DAEMON IMPORT STAGE 6", flush=True)
 from live.ingestion import WebSocketBarSourceStub
 from live.ops_runtime import SingletonPidLock
 from live.phase7_env import Phase7OandaConfig
@@ -69,7 +63,6 @@ def _with_retries(func, *, max_backoff_s: float, base_wait_s: float, logger) -> 
             time.sleep(max(wait_s, 1.0))
 
 
-print("ENTERING RUN_FOREVER", flush=True)
 
 def run_forever(
     *,
@@ -119,15 +112,11 @@ def run_forever(
         history_backups=int(os.environ.get("METRICS_HISTORY_BACKUPS", "6")),
     )
     startup_utc = datetime.now(timezone.utc)
-    print("BEFORE LOCK", flush=True)
 lock_res = lock.acquire()
-print("AFTER LOCK", flush=True)
 if not lock_res.acquired:
         raise RuntimeError(lock_res.message)
 watchdog.update({"status": "starting", "pid": os.getpid()})
-    print("BEFORE STATE LOAD", flush=True)
 persisted = state_store.load()
-print("AFTER STATE LOAD", flush=True)
 
     restored = False
     if persisted and isinstance(persisted, dict):
