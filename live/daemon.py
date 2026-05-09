@@ -118,7 +118,7 @@ if not lock_res.acquired:
 watchdog.update({"status": "starting", "pid": os.getpid()})
 persisted = state_store.load()
 
-    restored = False
+    restored =False
     if persisted and isinstance(persisted, dict):
         broker.import_runtime_state(persisted.get("broker") or {})
         runtime = persisted.get("runtime")
