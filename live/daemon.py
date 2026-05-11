@@ -1,4 +1,4 @@
-"""
+    restored =     False"""
 Continuous runner: OANDA H1 candle poll → ``LiveEURUSDBot`` + broker sync / fills.
 
 Environment (see ``live.phase7_env.Phase7OandaConfig``):
