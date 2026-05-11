@@ -110,7 +110,7 @@ persisted = state_store.load()
 
 
  restored =False
-    if persisted and isinstance(persisted, dict):
+ if persisted and isinstance(persisted, dict):
         broker.import_runtime_state(persisted.get("broker") or {})
         runtime = persisted.get("runtime")
         if isinstance(runtime, dict):
