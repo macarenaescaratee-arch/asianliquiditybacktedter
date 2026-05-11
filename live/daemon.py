@@ -111,10 +111,10 @@ persisted = state_store.load()
 
  restored =False
  if persisted and isinstance(persisted, dict):
-        broker.import_runtime_state(persisted.get("broker") or {})
-        runtime = persisted.get("runtime")
-        if isinstance(runtime, dict):
-            restored = bot.restore_runtime(runtime)
+     broker.import_runtime_state(persisted.get("broker") or {})
+     runtime = persisted.get("runtime")            
+     if isinstance(runtime, dict):
+        restored = bot.restore_runtime(runtime)
             if restored:
                 bot.logger.log(
                     "state_restore_ok",
