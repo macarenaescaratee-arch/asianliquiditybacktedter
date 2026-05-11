@@ -1,15 +1,4 @@
 
- restored =     False"""
-Continuous runner: OANDA H1 candle poll → ``LiveEURUSDBot`` + broker sync / fills.
-
-Environment (see ``live.phase7_env.Phase7OandaConfig``):
-
-- ``OANDA_API_TOKEN``, ``OANDA_ACCOUNT_ID``
-- ``OANDA_ENV`` — ``practice`` (default) or ``live``
-- ``OANDA_POLL_SECONDS`` — REST poll interval (default 15)
-- ``OANDA_BOOTSTRAP_CANDLES`` — historical H1 bars to seed the buffer
-- ``LIVE_MIN_BARS`` — signal engine warmup (default 900)
-"""
 
 from __future__ import annotations
 
